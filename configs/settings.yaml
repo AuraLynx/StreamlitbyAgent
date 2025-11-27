@@ -1,0 +1,4 @@
+app_title: "Hello Streamlit"
+tagline: "A starter layout for a maintainable Streamlit app."
+welcome_message: "Hello Streamlit"
+button_label: "Click me"
