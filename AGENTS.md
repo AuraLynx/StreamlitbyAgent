@@ -14,6 +14,7 @@
 - 静的ファイルが増える場合は `assets/` を作成して配置する。
 
 ## 開発・ビルド・テスト
+- Python 環境は基本 `uv` で管理（`uv venv` で仮想環境を作成し、`source .venv/bin/activate` 後に `uv pip install -r requirements.txt` を実行）。
 - 依存インストール: `pip install -r requirements.txt`（テストには `pytest` を追加インストール）。
 - ローカル起動: `streamlit run app.py`（リポジトリルートで実行すると `pages/` も読み込まれる）。
 - フォーマット/リント（推奨）: `python -m pip install black ruff` の後に `ruff .` と `black .` を実行。
