@@ -12,7 +12,7 @@ CONFIG_PATH = Path(__file__).parent / "configs" / "settings.yaml"
 
 @st.cache_data
 def load_settings() -> dict:
-    """Load app settings from the YAML file."""
+    """YAML ファイルからアプリ設定を読み込む。"""
 
     return load_yaml_config(CONFIG_PATH)
 

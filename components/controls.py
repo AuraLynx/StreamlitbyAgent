@@ -4,6 +4,6 @@ import streamlit as st
 
 
 def primary_button(label: str, *, key: str | None = None) -> bool:
-    """Render a consistent primary button and return its click state."""
+    """統一したプライマリボタンを描画し、そのクリック状態を返す。"""
 
     return st.button(label, type="primary", key=key)

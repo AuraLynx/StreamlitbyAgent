@@ -9,10 +9,10 @@ import yaml
 
 def load_yaml_config(path: Path) -> Dict[str, Any]:
     """
-    Load a YAML configuration file.
+    YAML 設定ファイルを読み込む。
 
-    The return value is a plain dictionary so it can easily be consumed by
-    Streamlit or other modules without adding framework-specific coupling.
+    戻り値はプレーンな辞書で、Streamlit や他のモジュールからフレームワークに依存せず
+    利用できるようにする。
     """
 
     data = path.read_text(encoding="utf-8") if path.exists() else "{}"
@@ -20,7 +20,7 @@ def load_yaml_config(path: Path) -> Dict[str, Any]:
 
 
 def resolve_project_root() -> Path:
-    """Return the repository root (directory containing .git)."""
+    """.git を含むディレクトリ、すなわちリポジトリのルートを返す。"""
 
     current = Path(__file__).resolve()
     for parent in current.parents:
