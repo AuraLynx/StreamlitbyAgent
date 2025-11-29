@@ -17,17 +17,35 @@ def load_settings() -> dict:
     return load_yaml_config(CONFIG_PATH)
 
 
-def main() -> None:
-    settings = load_settings()
+def configure_page(settings: dict) -> None:
+    """ページの基本設定を適用する。"""
+
+    st.set_page_config(
+        page_title=settings.get("app_title", "Hello Streamlit"),
+        page_icon="👋",
+        layout="wide",
+    )
+
+
+def render_header(settings: dict) -> None:
+    """タイトルと導入文を描画する。"""
+
     title = settings.get("app_title", "Hello Streamlit")
     welcome_message = settings.get("welcome_message", title)
-    button_label = settings.get("button_label", "Click me")
-
-    st.set_page_config(page_title=title, page_icon="👋", layout="wide")
 
     st.title(welcome_message)
+
+
+def render_call_to_action(settings: dict) -> None:
+    """CTA ボタンを描画し、クリック時にメッセージを表示する。"""
+
+    button_label = settings.get("button_label", "Click me")
     if primary_button(button_label, key="welcome_button"):
         st.success("Button clicked! You can wire this up to your logic layer.")
+
+
+def render_project_layout() -> None:
+    """プロジェクト構成を説明するセクションを描画する。"""
 
     st.markdown(
         """
@@ -50,6 +68,14 @@ def main() -> None:
                 "tests": "Unit tests for non-UI logic",
             }
         )
+
+
+def main() -> None:
+    settings = load_settings()
+    configure_page(settings)
+    render_header(settings)
+    render_call_to_action(settings)
+    render_project_layout()
 
 
 if __name__ == "__main__":
